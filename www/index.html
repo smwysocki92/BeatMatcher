@@ -38,10 +38,16 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+
+    <!-- For Mobile Debugging -->
+    <script src="http://10.0.0.91:8080/target/target-script-min.js#anonymous"></script>
+
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/lib/jquery-1.12.3.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="css/bootstrap.css"></script>
     <script src="js/myApp.js"></script>
     <script src="js/controller.js"></script>
     <title>Beat Matcher</title>
@@ -49,27 +55,51 @@
 
 <body>
     <div class="container">
-        <div class="panel">
-            <div class="panel-header">
-                <h3>Welcome</h3>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Back</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
             </div>
-            <div class="palen-body">
+        </nav>
+
+        <div class="row">&nbsp;</div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Welcome
+            </div>
+            <div class="panel-body">
                 <p>Here is some cool stuff</p>
             </div>
         </div>
+        <div class="row">&nbsp;</div>
+        <div ng-controller="controller">
+            <p><button class="myButton" ng-click="alertDeviceInfo()">Device</button></p>
+            <p><button class="myButton" ng-click="alertGeoLocation()">Location</button></p>
+            <p><button class="myButton" ng-click="beepNotify()">Beep</button></p>
+            <p><button class="myButton" ng-click="vibrateNotify()">Vibrate</button></p>
+        </div>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">My Music</a></li>
+                    <li><a href="#">Discover</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <div ng-controller="controller">
-        <p><button class="myButton" ng-click="alertDeviceInfo()">Device</button></p>
-        <p><button class="myButton" ng-click="alertGeoLocation()">Location</button></p>
-        <p><button class="myButton" ng-click="beepNotify()">Beep</button></p>
-        <p><button class="myButton" ng-click="vibrateNotify()">Vibrate</button></p>
-    </div>
-    <script type="text/javascript">app.initialize();</script>
+    <script type="text/javascript">myApp.initialize();</script>
     <script type="text/javascript" src="cordova.js"></script>
     <!-- <script type="text/javascript" src="js/index.js"></script> -->
     <script type="text/javascript">
         app.initialize();
     </script>
+
 </body>
 
 </html>
